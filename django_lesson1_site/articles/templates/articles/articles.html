@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'articles/css/articles.css' %}">
+    <title>Articles</title>
+</head>
+
+<body>
+    <header id="main-header">
+        <h1>Articles</h1>
+    </header>
+    <main>
+    <section>
+        <ol>
+            {% for article in object_list %}
+           <li class="article-item">
+               <article>
+                   <div class="article-summary">
+                       <div class="article-image">
+                           <img src="" alt="" >
+                       </div>
+                       <div class="article-details">
+                           <h3><a href="{% url 'article-detail-url' article.pk %}" class="article-title">{{article.title}}</a></h3>
+                           
+                           <address>{{article.text}}</address>
+                       </div>
+                   </div>
+                   <div class="article-actions">
+                    <a href="{% url 'update-article-url' article.pk %}" class="btn btn-primary">Edit</a>
+                   </div>
+               </article>
+           </li>
+           {% endfor %}
+        </ol>
+    </section>
+</main>
+</body>
+
+</html>
+
+    <!-- <div class="container">
+        <h1>Articles</h1>
+        
+            {% for article in object_list %}
+            <div> 
+                <a href="{% url 'article-detail-url' article.pk %}" class="article-title">{{article.title}}</a> - 
+                <a href="{% url 'update-article-url' article.pk %}" class="btn btn-primary">Edit</a><br>
+                {{article.text}}
+            </div>
+            <br>
+            {% endfor %}
+        
+    </div> -->
