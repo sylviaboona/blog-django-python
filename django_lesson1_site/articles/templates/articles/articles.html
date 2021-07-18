@@ -17,35 +17,58 @@
         <h1>Articles</h1>
     </header>
     <main>
-    <section>
-        <ol>
-            {% for article in object_list %}
-           <li class="article-item">
-               <article>
-                   <div class="article-summary">
-                       <div class="article-image">
-                           <img src="" alt="" >
-                       </div>
-                       <div class="article-details">
-                           <h3><a href="{% url 'article-detail-url' article.pk %}" class="article-title">{{article.title}}</a></h3>
-                           
-                           <address>{{article.text}}</address>
-                       </div>
-                   </div>
-                   <div class="article-actions">
-                    <a href="{% url 'update-article-url' article.pk %}" class="btn btn-primary">Edit</a>
-                   </div>
-               </article>
-           </li>
-           {% endfor %}
-        </ol>
-    </section>
-</main>
+        <section>
+            <ol>
+                {% for article in object_list %}
+                <li class="article-item">
+                    <article>
+                        <div class="article-summary">
+                            <div class="article-image">
+                                <img src="{% static 'articles/img/img1.jpg' %}" alt="" width="20%">
+                            </div>
+                            <div class="article-details">
+                                <h3><a href="{% url 'article-detail-url' article.pk %}"
+                                        class="article-title">{{article.title}}</a></h3>
+                                <address>{{article.text}}</address>
+                            </div>
+                        </div>
+                        <div class="article-actions">
+                            <a href="{% url 'update-article-url' article.pk %}" class="btn btn-primary">Edit</a>
+                            <a href="{% url 'delete-article-url' article.pk %}" class="btn btn-primary">Delete</a>
+                        </div>
+                        <!-- <div class="modal" tabindex="-1">
+                            <div class="modal-dialog">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title">Delete</h5>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                  <p>Delete: {{ article.title }}</p>
+                                  <p>Are you sure????</p>
+                                </div>
+                                <div class="modal-footer">
+                                  
+                                  <form method="POST" enctype="multipart/form-data">
+                                    {% csrf_token %}
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-success">Delete Article</button>
+                                </form> -->
+                        <!-- </div>
+                              </div>
+                            </div>
+                          </div> -->
+                    </article>
+                </li>
+                {% endfor %}
+            </ol>
+        </section>
+    </main>
 </body>
 
 </html>
 
-    <!-- <div class="container">
+<!-- <div class="container">
         <h1>Articles</h1>
         
             {% for article in object_list %}

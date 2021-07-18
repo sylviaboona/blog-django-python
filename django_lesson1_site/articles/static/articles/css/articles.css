@@ -43,7 +43,7 @@
   }
   
   #main-header h1 {
-      font-size: 1.5rem;
+      font-size: 2.5rem;
   }
   
   #main-logo {
@@ -72,7 +72,7 @@ section {
     padding: 0;
   }
   
-  .meetup-item {
+  .article-item {
     margin: 1rem 0;
     background-color: #350490;
     padding: 2rem;
@@ -130,15 +130,13 @@ section {
 
 
 
-
-
 #main-header {
     width: 100%;
     text-align: center;
     padding: 2rem 0;
 }
 
-.article-title-container{
+/* .article-title-container{
     background-color: darkolivegreen;
 }
 
@@ -149,4 +147,4 @@ section {
 
 .container{
     background-color: darkolivegreen;
-}
+} */
