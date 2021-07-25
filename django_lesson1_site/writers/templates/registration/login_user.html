@@ -1,0 +1,21 @@
+{% extends 'articles/base.html' %}
+{%block title %}{{article.title}}{% endblock%}
+{% block body %}
+    <div class="card">
+        <div class="card-header">
+            <h5 class="card-title">Login</h5>
+        </div>
+        <div class="card-body">
+            <div class="form-group">
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <input type="text" name="username" placeholder="Username" class="form-control">
+                <br>
+                <input type="password" name="password" placeholder="Password" class="form-control">
+                <br>
+                <button type="submit" class="btn btn-success">Login</button>
+            </form>
+        </div>
+        </div>
+    </div>
+{%endblock%}

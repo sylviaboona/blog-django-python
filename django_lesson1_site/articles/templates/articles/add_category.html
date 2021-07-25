@@ -1,26 +1,23 @@
 {% extends 'articles/base.html' %}
-{%block title %}Delete Article{% endblock%}
+{%block title %}Add Article Category{% endblock%}
 {% block body %}
 {% if user.is_authenticated%}
     <div class="card">
         <div class="card-header">
-            <h5 class="card-title">Delete Article</h5>
+            <h5 class="card-title">Add New Article Category</h5>
         </div>
-        <br>
-        <h3>Delete: {{ article.title }}</h3>
-        <br>
         <div class="card-body">
             <div class="form-group">
             <form method="POST" enctype="multipart/form-data">
                 {% csrf_token %}
-                <button type="submit" class="btn btn-success">Delete Article</button>
+                {{form.as_p}}
+                <button type="submit" class="btn btn-success">Add Category</button>
             </form>
         </div>
         </div>
     </div>
 {% else %}
-
     <h1>You are not authorized to view this page</h1>
-
 {% endif %}
-{%endblock%}
+
+{% endblock %}

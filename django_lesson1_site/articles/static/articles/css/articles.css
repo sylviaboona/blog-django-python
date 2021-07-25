@@ -138,13 +138,17 @@ section {
 
 /* .article-title-container{
     background-color: darkolivegreen;
-}
+} */
 
 .article-title{
     text-decoration: none;
-    color: black;
+    /* color: black; */
 }
 
-.container{
+.sidebar{
+  width: 10%;
+  background-color: white;
+}
+/* .container{
     background-color: darkolivegreen;
-} */
+}  */

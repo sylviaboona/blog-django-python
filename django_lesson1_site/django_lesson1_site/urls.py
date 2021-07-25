@@ -20,4 +20,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('meetups.urls')),
     path('', include('articles.urls')),
+    # path('writers/', include('django.contrib.auth.urls')),
+    path('writers/', include('writers.urls')),
 ]

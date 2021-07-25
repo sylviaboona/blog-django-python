@@ -1,0 +1,97 @@
+{% extends 'articles/base.html' %}
+{%load static %}
+{% block body %}
+
+    
+    {%if category_articles%}
+    <h1> Articles About {{ cats }} </h1>
+    <main>
+        <section>
+          {% if user.is_authenticated%}
+          <a href="{% url 'create-articles-url' %}" class="btn btn-primary">Add Article <Article></Article></a>
+          {% endif %}
+          <ol>
+            {% for article in category_articles %}
+            <li class="article-item">
+              <article>
+                <div class="article-summary">
+                  <div class="article-image">
+                    <img src="{% static 'articles/img/img1.jpg' %}" alt="" width="20%">
+                  </div>
+                  <div class="article-details">
+                    <h3>{{article.title}}</h3>
+                    <small> - {{article.create_date}}</small>
+                    <address>{{article.text|slice:":50"}}...</address>
+                  </div>
+                </div>
+                
+                
+             
+                
+                <div class="article-actions">
+                  <a href="{% url 'article-detail-url' article.pk %}" class="btn btn-primary">Read More</a>
+                  {% if user.is_authenticated%}
+                  <a href="{% url 'update-article-url' article.pk %}" class="btn btn-primary">Edit</a>
+                  <!-- <a href="{% url 'delete-article-url' article.pk %}" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Delete</a> -->
+                <!-- Button trigger modal -->
+    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      Delete
+    </button>
+    
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Delete <Article></Article></h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>Delete: {{ article.title }}</p>
+            <p>Are you sure????</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <a class="btn btn-primary">Delete</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    
+                {% endif %}
+                
+                <!-- <div class="modal" tabindex="-1"> -->
+                  <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"></div>
+                                <div class="modal-dialog">
+                                  <div class="modal-content">
+                                    <div class="modal-header">
+                                      <h5 class="modal-title">Delete</h5>
+                                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                      <p>Delete: {{ article.title }}</p>
+                                      <p>Are you sure????</p>
+                                    </div>
+                                    <div class="modal-footer">
+                                      
+                                      <form method="POST" enctype="multipart/form-data">
+                                        {% csrf_token %}
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <button type="submit" class="btn btn-success">Delete Article</button>
+                                    </form>
+                                  </div>
+                </div>
+                                  </div>
+                                </div>
+                              </div> -->
+              </article>
+            </li>
+            {% endfor %}
+          </ol>
+        </section>
+      </main>
+      {%else%}
+      <h1>There are no articles about  {{cats}} </h1>
+      {%endif%}      
+  {% endblock %}
