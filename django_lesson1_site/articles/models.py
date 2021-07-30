@@ -11,6 +11,7 @@ class Category(models.Model):
     def get_absolute_url(self):
         return reverse('all-articles-url')
 
+
 class Article(models.Model):
     title = models.CharField(max_length=200)
     text = models.TextField()
@@ -24,4 +25,7 @@ class Article(models.Model):
 
     def get_absolute_url(self):
         return reverse('all-articles-url')
+
+    def get_article_title(self):
+        return self.title
 
